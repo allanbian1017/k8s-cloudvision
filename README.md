@@ -52,7 +52,7 @@ Prepare Docker Image
 
 Build Docker image:
 ```
-docker build . -t gcr.io/your-project-id/cloudvision
+docker build Docker/ -t gcr.io/your-project-id/cloudvision
 ```
 
 Push docker image to Google Container Registry:
@@ -66,7 +66,7 @@ Usage
 
 Deploy deployment/service:
 ```
-kubectl create -f cloudvision.yaml
+kubectl create -f cloudvision.yml
 ```
 
 After deployment, you can check pod/service status:
@@ -77,12 +77,12 @@ kubectl get service
 
 Edit deployment/service
 ```
-kubectl edit -f cloudvision.yaml
+kubectl edit -f cloudvision.yml
 ```
 
 Delete deployment/service:
 ```
-kubectl delete -f cloudvision.yaml
+kubectl delete -f cloudvision.yml
 ```
 
 For instance, the following `curl` command sends an image URL to Cloud function.
