@@ -84,3 +84,11 @@ Delete deployment/service:
 ```
 kubectl delete -f cloudvision.yaml
 ```
+
+For instance, the following `curl` command sends an image URL to Cloud function.
+
+```
+curl -H "Content-Type: application/json" -X POST \
+-d '{"image_url": "https://cloud.google.com/vision/images/rushmore.jpg"}' \
+YOUR_SERVICE_IP
+```
