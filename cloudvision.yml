@@ -1,0 +1,40 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: cloudvision-svc
+  labels:
+    app: cloudvision-svc
+spec:
+  ports:
+  - port: 80
+    targetPort: 3000
+  selector:
+    app: cloudvision-api
+  type: LoadBalancer
+---
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: cloudvision-api
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: cloudvision-api
+    spec:
+      volumes:
+      - name: google-cloud-key
+        secret:
+          secretName: cloudvision-key
+      containers:
+      - name: cloudvision
+        image: gcr.io/your-project-id/cloudvision 
+        ports:
+        - containerPort: 3000
+        volumeMounts:
+        - name: google-cloud-key
+          mountPath: /var/secrets/google
+        env:
+        - name: GOOGLE_APPLICATION_CREDENTIALS
+          value: /var/secrets/google/key.json
