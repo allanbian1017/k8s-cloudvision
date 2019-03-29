@@ -1,0 +1,15 @@
+project_name="your-project-name"
+
+# GKE parameters
+cluster_name="cloudvision-cluster"
+cluster_version="1.12.6-gke.7"
+node_version="$cluster_version"
+machine_type="n1-standard-1"
+network="default"
+scopes="default"
+maintenance_window="00:00" # UTC+0
+disk_size="100" # Unit: GB
+region="us-east"
+zone="us-east1"
+zones="us-east1-b"
+num_nodes=3
