@@ -1,5 +1,6 @@
 #!/bin/bash
 
+set -o errexit
 source $(pwd)/config
 
 # build & push image
