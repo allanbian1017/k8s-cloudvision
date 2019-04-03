@@ -46,6 +46,8 @@ Prepare Docker image:
 
 ## Usage
 
+### Use kubectl
+
 Deploy deployment/service:
 
 ```bash
@@ -69,6 +71,20 @@ Delete deployment/service:
 
 ```bash
 kubectl delete -f cloudvision.yml
+```
+
+### Use helm
+
+Deploy:
+
+```bash
+helm install k8s-cloudvision
+```
+
+Delete:
+
+```bash
+helm delete <your-helm-name>
 ```
 
 ## Test
