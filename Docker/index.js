@@ -4,7 +4,7 @@ const vision = require('@google-cloud/vision');
 const app = express();
 const client = new vision.ImageAnnotatorClient();
 
-app.set('port', 3000);
+app.set('port', 80);
 app.use(bodyParser.json());
 
 app.post('/', (req, res) => {

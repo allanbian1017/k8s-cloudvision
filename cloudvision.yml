@@ -7,7 +7,7 @@ metadata:
 spec:
   ports:
   - port: 80
-    targetPort: 3000
+    targetPort: 80
   selector:
     app: cloudvision-api
   type: LoadBalancer
@@ -31,7 +31,7 @@ spec:
       - name: cloudvision
         image: gcr.io/your-project-id/cloudvision 
         ports:
-        - containerPort: 3000
+        - containerPort: 80
         volumeMounts:
         - name: google-cloud-key
           mountPath: /var/secrets/google
