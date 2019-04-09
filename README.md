@@ -81,6 +81,12 @@ Deploy:
 helm install k8s-cloudvision
 ```
 
+Upgrade:
+
+```bash
+helm upgrade -f k8s-cloudvision/values.yaml <your-helm-name> k8s-cloudvision
+```
+
 Delete:
 
 ```bash
@@ -92,6 +98,5 @@ helm delete <your-helm-name>
 For instance, the following `curl` command sends an image URL to service:
 
 ```bash
-curl -H "Content-Type: application/json" -X POST
--d '{"image_url": "https://cloud.google.com/vision/images/rushmore.jpg"}' YOUR_SERVICE_IP
+curl -H "Content-Type: application/json" -X POST -d '{"image_url": "https://cloud.google.com/vision/images/rushmore.jpg"}' YOUR_SERVICE_IP
 ```
