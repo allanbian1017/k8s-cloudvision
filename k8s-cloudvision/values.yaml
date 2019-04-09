@@ -5,11 +5,15 @@ image:
   tag: latest
   pullPolicy: IfNotPresent
 
-envVars:
-  GOOGLE_APPLICATION_CREDENTIALS: /var/secrets/google/key.json
+secretVols:
+  google-cloud-key: cloudvision-key
 
 volMounts:
   google-cloud-key: /var/secrets/google
+
+envVars:
+  GOOGLE_APPLICATION_CREDENTIALS: /var/secrets/google/key.json
+
 
 nameOverride: ""
 fullnameOverride: ""

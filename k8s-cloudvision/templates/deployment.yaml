@@ -20,9 +20,11 @@ spec:
         app.kubernetes.io/instance: {{ .Release.Name }}
     spec:
       volumes:
-      - name: google-cloud-key
-        secret:
-          secretName: cloudvision-key
+        {{- range $key, $value := .Values.secretVols }}
+        - name: {{ $key }}
+          secret:
+            secretName: {{ $value }}
+        {{- end }}
       containers:
         - name: {{ .Chart.Name }}
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
