@@ -32,8 +32,10 @@ spec:
               containerPort: 80
               protocol: TCP
           volumeMounts:
-            - name: google-cloud-key
-              mountPath: /var/secrets/google
+            {{- range $key, $value := .Values.volMounts }}
+            - name: {{ $key }}
+              mountPath: {{ $value }}
+            {{- end }}
           env:
             {{- range $key, $value := .Values.envVars }}
             - name: {{ $key }}

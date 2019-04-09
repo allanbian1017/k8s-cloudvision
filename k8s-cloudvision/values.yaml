@@ -8,6 +8,9 @@ image:
 envVars:
   GOOGLE_APPLICATION_CREDENTIALS: /var/secrets/google/key.json
 
+volMounts:
+  google-cloud-key: /var/secrets/google
+
 nameOverride: ""
 fullnameOverride: ""
 
