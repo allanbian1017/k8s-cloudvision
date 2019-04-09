@@ -32,11 +32,13 @@ spec:
               containerPort: 80
               protocol: TCP
           volumeMounts:
-          - name: google-cloud-key
-            mountPath: /var/secrets/google
+            - name: google-cloud-key
+              mountPath: /var/secrets/google
           env:
-          - name: GOOGLE_APPLICATION_CREDENTIALS
-            value: /var/secrets/google/key.json
+            {{- range $key, $value := .Values.envVars }}
+            - name: {{ $key }}
+              value: "{{ $value }}"
+            {{- end }}
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
       {{- with .Values.nodeSelector }}

@@ -5,6 +5,9 @@ image:
   tag: latest
   pullPolicy: IfNotPresent
 
+envVars:
+  GOOGLE_APPLICATION_CREDENTIALS: /var/secrets/google/key.json
+
 nameOverride: ""
 fullnameOverride: ""
 
