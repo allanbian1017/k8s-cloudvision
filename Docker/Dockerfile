@@ -15,5 +15,5 @@ COPY index.js /app/
 
 RUN npm install --production
 
-EXPOSE 80
+EXPOSE 8080
 CMD ["npm", "start"]

@@ -4,8 +4,14 @@ const vision = require('@google-cloud/vision');
 const app = express();
 const client = new vision.ImageAnnotatorClient();
 
-app.set('port', 80);
+app.set('port', 8080);
 app.use(bodyParser.json());
+
+app.get('/health', (req, res) => {
+  res.status(200).json({
+    message: 'Success',
+  });
+});
 
 app.post('/', (req, res) => {
   if (!req.body || !req.body.image_url) {

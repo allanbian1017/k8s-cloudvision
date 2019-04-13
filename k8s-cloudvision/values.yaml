@@ -1,4 +1,7 @@
 replicaCount: 1
+livenessProbePath: /health
+readlinessProbePath: /health
+exposePort: 8080
 
 image:
   repository: gcr.io/your-project-name/cloudvision
@@ -15,12 +18,12 @@ envVars:
   GOOGLE_APPLICATION_CREDENTIALS: /var/secrets/google/key.json
 
 
-nameOverride: ""
-fullnameOverride: ""
+nameOverride: "cloudvision"
+fullnameOverride: "k8s-cloudvision"
 
 service:
   type: LoadBalancer
-  port: 8080
+  port: 80
 
 ingress:
   enabled: false

@@ -31,8 +31,16 @@ spec:
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           ports:
             - name: http
-              containerPort: 80
+              containerPort: {{ .Values.exposePort }}
               protocol: TCP
+          livenessProbe:
+            httpGet:
+              path: {{ .Values.livenessProbePath }}
+              port: http
+          readinessProbe:
+            httpGet:
+              path: {{ .Values.readlinessProbePath }}
+              port: http
           volumeMounts:
             {{- range $key, $value := .Values.volMounts }}
             - name: {{ $key }}
